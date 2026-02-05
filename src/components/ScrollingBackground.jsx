@@ -1,55 +1,73 @@
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
 import backgroundImg from '../assets/background.webp';
 
 const ScrollingBackground = () => {
-    const { scrollY } = useScroll();
+    const imgRef = useRef(null);
 
-    // Mapping scroll position (pixels) to vertical movement (panning)
-    // This creates the "video scrubbing" effect where movement depends 100% on the user
-    // We increase the panning range to make the movement more noticeable
-    const y = useTransform(scrollY, [0, 4000], ['0px', '-200px']);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!imgRef.current) return;
+
+            // Get scroll position
+            const scrollY = window.scrollY;
+
+            // Move background: every 10px of scroll moves image 1px
+            const translateY = -(scrollY / 10);
+
+            // Apply transform directly
+            imgRef.current.style.transform = `translateY(${translateY}px)`;
+        };
+
+        // Listen to scroll
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // Set initial position
+        handleScroll();
+
+        // Cleanup
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <div
-            className="scrolling-bg-container"
             style={{
-                width: '100vw',
-                height: '100vh',
                 position: 'fixed',
                 top: 0,
                 left: 0,
+                width: '100vw',
+                height: '100vh',
                 overflow: 'hidden',
                 zIndex: -2,
                 backgroundColor: '#000'
             }}
         >
-            <motion.img
+            <img
+                ref={imgRef}
                 src={backgroundImg}
                 alt="Background"
                 style={{
-                    y,
-                    width: '100vw',
-                    height: '120vh', // Significant height buffer for panning
+                    width: '100%',
+                    height: '150vh',
                     objectFit: 'cover',
                     objectPosition: 'center top',
                     display: 'block',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
                     willChange: 'transform'
                 }}
             />
-            {/* Dark Overlay for better text legibility */}
+
+            {/* Overlay */}
             <div
-                className="scrolling-bg-overlay"
                 style={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%)'
+                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%)',
+                    pointerEvents: 'none',
+                    zIndex: 1
                 }}
             />
         </div>

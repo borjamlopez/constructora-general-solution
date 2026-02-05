@@ -101,12 +101,18 @@
 @media (max-width: 1200px) {
     .hero-title {
         font-size: 3.2rem;
+        margin-top: 80px;
     }
 }
 
 @media (max-width: 992px) {
     .hero-title {
         font-size: 2.8rem;
+        margin-top: 60px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
     }
 
     .hero-bottom-bar {
@@ -118,10 +124,22 @@
     .hero-title {
         font-size: 2.2rem;
         line-height: 1.2;
+        margin-top: 40px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 35px;
     }
 
     .hero-btns {
         flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
     }
 
     .hero-text {
@@ -135,5 +153,16 @@
 
     .hero-btns {
         align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
     }
 }

@@ -172,3 +172,43 @@
         background: rgba(0, 0, 0, 0.5);
     }
 }
+
+@media (max-width: 768px) {
+    .nav-logo {
+        height: 70px;
+    }
+
+    .navbar.scrolled .nav-logo {
+        height: 60px;
+    }
+
+    .mobile-menu {
+        padding: 100px 30px;
+    }
+
+    .mobile-menu a {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo {
+        height: 60px;
+    }
+
+    .navbar.scrolled .nav-logo {
+        height: 50px;
+    }
+
+    .mobile-menu {
+        padding: 80px 20px;
+    }
+
+    .mobile-menu ul {
+        gap: 30px;
+    }
+
+    .mobile-menu a {
+        font-size: 1.6rem;
+    }
+}

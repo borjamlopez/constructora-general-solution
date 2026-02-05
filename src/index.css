@@ -149,8 +149,38 @@ img {
   /* Increased side padding */
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
 .section {
   padding: var(--section-padding);
+}
+
+@media (max-width: 992px) {
+  .section {
+    padding: 100px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 16px;
+  }
 }
 
 .text-primary {
@@ -349,6 +379,20 @@ img {
   margin-top: 40px;
 }
 
+@media (max-width: 992px) {
+  .values-minimal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-minimal-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
 .value-card-minimal {
   text-align: center;
   padding: 30px;
@@ -400,6 +444,13 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .services-grid-minimal {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
 
 .service-item-minimal {
@@ -1082,16 +1133,27 @@ img {
   .footer-top {
     gap: 50px;
   }
+
+  .section-title {
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+  }
 }
 
 @media (max-width: 992px) {
   .section-title {
     font-size: 2.8rem;
+    letter-spacing: -1.5px;
+  }
+
+  .section-description {
+    font-size: 1.1rem;
   }
 
   .projects-grid,
   .catalog-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 30px;
   }
 
   .about-grid,
@@ -1102,6 +1164,12 @@ img {
 
   .footer-top {
     grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .mission-vision {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 }
 
@@ -1111,13 +1179,49 @@ img {
   .catalog-grid,
   .footer-top {
     grid-template-columns: 1fr;
-  }
-
-  .container {
-    padding: 0 20px;
+    gap: 25px;
   }
 
   .section-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+  }
+
+  .section-description {
+    font-size: 1rem;
+  }
+
+  .massive-title {
+    font-size: 2rem;
+    letter-spacing: -1px;
+  }
+
+  .content-spacer {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-tag {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    padding-left: 35px;
+  }
+
+  .section-tag::before {
+    width: 25px;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    font-size: 0.85rem;
+  }
+
+  .massive-title {
+    font-size: 1.5rem;
   }
 }
